@@ -3,17 +3,14 @@
 
   "name": "DatingDefender",
   "description": "OKCupid scam blocker. Fully self-contained inside of the OKCupid site.",
-  "version": "1.0",
+  "version": "1.2",
 
   "browser_action": {
-   "default_icon": "icon.png",
-   "default_popup": "popup.html"
-  },
-
-  "icons": { "16": "icon-16.png",
+   "default_icon": { "16": "icon-16.png",
            "48": "icon-48.png",
           "128": "icon1-28.png" },
-
+   "default_popup": "popup.html"
+  },
 
   "content_scripts": [
     {

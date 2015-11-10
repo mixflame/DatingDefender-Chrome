@@ -40,7 +40,7 @@ function check_msg(msg) {
   } else if (msg.indexOf("text") > -1) {
     warning("Warning: If the remote party is asking you to text them right now, doing so would reveal your phone number, which can help build a profile on your identity.");
   } else if (msg.indexOf("name") > -1) {
-    warning("Warning: The remote party may have asked your name. It is probably unwise to reveal this information.");
+    warning("Warning: The remote party may have asked your name. Do not reveal personal identity information unless absolutely necessary.");
   }
 }
 
