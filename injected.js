@@ -14,6 +14,11 @@ warning = function(warning) {
   }
   // document.addEventListener("DOMNodeInserted", dom_inserted);
   // alert(warning);
+
+  basic_info = document.getElementById("basic_info");
+  if(basic_info && !(basic_info.innerHTML.indexOf(warning) > -1)) {
+    basic_info.innerHTML += "<p>" + warning + "</p>";
+  }
 }
 
 // dom_inserted = function(e) {
@@ -51,6 +56,7 @@ function check_for_bullshit() {
   // console.log(theirs);
   // scan IM box
   check_name();
+  check_picture_amounts()
 
   for(i = 0; i < theirs.length; i++) {
     msg = theirs[i].innerHTML;
@@ -66,11 +72,23 @@ function check_for_bullshit() {
   }
 }
 
+function check_picture_amounts() {
+  user_name = jQuery('#basic_info_sn').html();
+  amount = jQuery("img[alt*='" + user_name + "']").length
+
+  if(amount == 1) {
+    warning("User has only added one photo. Probable scam profile.")
+  }
+}
+
 function check_name() {
-  opponent_name = document.querySelector(".global_messaging > .header > .linkwrap > h2").innerHTML;
-  last_five = opponent_name.slice(-5);
-  if(isNumeric(last_five)) {
-    warning("The last five digits of the remote party's nickname are numbers. This could indicate a bot.")
+  enemy = document.querySelector(".global_messaging > .header > .linkwrap > h2");
+  if(enemy) {
+    opponent_name = enemy.innerHTML;
+    last_five = opponent_name.slice(-5);
+    if(isNumeric(last_five)) {
+      warning("The last five digits of the remote party's nickname are numbers. This could indicate a bot.")
+    }
   }
 }
 
