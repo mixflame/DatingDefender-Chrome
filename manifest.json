@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "PUTOFORCE: OkCupid Anti-Blackmail",
+  "description": "Tries to detect if someone talking to you is likely to be a dangerous blackmail scammer.",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.okcupid.com/*"],
+      "js": ["injected.js"]
+    }
+  ],
+
+  "permissions": [
+   "activeTab"
+   ]
+}
