@@ -28,7 +28,7 @@ warning = function(warning) {
 // }
 
 function check_msg(msg) {
-  console.log(msg);
+  // console.log(msg);
   msg = msg.toLowerCase();
   if(msg.indexOf("skype") > -1) {
     warning("Warning: The remote party mentioned Skype. In the past Skype has been used to hijack video stream for scam purposes. Only Skype with people you know and trust.");
@@ -39,6 +39,10 @@ function check_msg(msg) {
   }
 }
 
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 
 function check_for_bullshit() {
   // console.log("ran");
@@ -46,6 +50,8 @@ function check_for_bullshit() {
   var message_body = document.getElementsByClassName("message_body");
   // console.log(theirs);
   // scan IM box
+  check_name();
+
   for(i = 0; i < theirs.length; i++) {
     msg = theirs[i].innerHTML;
     check_msg(msg);
@@ -57,6 +63,14 @@ function check_for_bullshit() {
       msg = message_body[i].innerHTML;
       check_msg(msg);
     }
+  }
+}
+
+function check_name() {
+  opponent_name = document.querySelector(".global_messaging > .header > .linkwrap > h2").innerHTML;
+  last_five = opponent_name.slice(-5);
+  if(isNumeric(last_five)) {
+    warning("The last five digits of the remote party's nickname are numbers. This could indicate a bot.")
   }
 }
 
