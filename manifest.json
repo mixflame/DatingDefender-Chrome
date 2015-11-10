@@ -1,14 +1,18 @@
 {
   "manifest_version": 2,
 
-  "name": "PUTOFORCE: OkCupid Anti-Blackmail",
-  "description": "Tries to detect if someone talking to you is likely to be a dangerous blackmail scammer.",
+  "name": "DatingDefender",
+  "description": "OKCupid scam blocker. Fully self-contained inside of the OKCupid site.",
   "version": "1.0",
 
   "browser_action": {
    "default_icon": "icon.png",
    "default_popup": "popup.html"
   },
+
+  "icons": { "16": "icon-16.png",
+           "48": "icon-48.png",
+          "128": "icon1-28.png" },
 
 
   "content_scripts": [

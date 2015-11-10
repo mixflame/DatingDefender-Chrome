@@ -87,7 +87,7 @@ function check_name() {
     opponent_name = enemy.innerHTML;
     last_five = opponent_name.slice(-5);
     if(isNumeric(last_five)) {
-      warning("The last five digits of the remote party's nickname are numbers. This could indicate a bot.")
+      warning("This user's name appears bot-like. May be a scam profile.")
     }
   }
 }
