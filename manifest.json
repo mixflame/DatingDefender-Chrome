@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.okcupid.com/*"],
-      "js": ["injected.js"]
+      "js": ["injected.js", "jquery.js"]
     }
   ],
 
